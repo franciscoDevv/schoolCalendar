@@ -12,11 +12,20 @@
   min-height: 100px; 
   cursor: pointer;
   border: 1px solid #dee2e6;
-  border-radius: 5px;
+  background-color: #212529;
   padding: 10px;
   transition: .4s;
   &:hover {
     transition: .4s;
     background-color: #31363F;
+    color: #fff;
+    transform: scale(1.03);
   }
+}
+
+.current-day {
+  background-color: #ddd;
+  color: #31363F;
+  border: 1px solid #000;
+
 }
