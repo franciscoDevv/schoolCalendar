@@ -37,7 +37,7 @@ const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viern
 
 const today = new Date();
 const currentDay = today.getDate();
-const currentMonth = today.getMonth() + 1; // Los meses son indexados desde 0 en JavaScript
+const currentMonth = today.getMonth() + 1; 
 
 daysOfWeek.forEach(day => {
   const header = document.createElement('div');
@@ -52,11 +52,19 @@ for (let i = 0; i < firstDayOfMonth; i++) {
 
 for (let i = 1; i <= daysInMonth; i++) {
   const dayDiv = document.createElement('div');
-  dayDiv.textContent = i;
   dayDiv.classList.add('p-2', 'border', 'mb-2', 'calendar-day');
 
   if (month === currentMonth && i === currentDay) {
     dayDiv.classList.add('current-day');
+  } else {
+    dayDiv.textContent = i;
+  }
+
+  if (month === currentMonth && i === currentDay) {
+    const currentDayParagraph = document.createElement('p');
+    currentDayParagraph.textContent = i;
+    currentDayParagraph.classList.add('current-day-number');
+    dayDiv.appendChild(currentDayParagraph);
   }
 
   const eventsForDay = events.filter(event => {
@@ -75,6 +83,7 @@ for (let i = 1; i <= daysInMonth; i++) {
   }
   calendarDiv.appendChild(dayDiv);
 }
+
 }
 
 document.getElementById('month-select').addEventListener('change', function() {

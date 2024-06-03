@@ -16,9 +16,9 @@
   border: 1px solid #dee2e6;
   background-color: #212529;
   padding: 10px;
-  transition: 0.4s;
 }
 .calendar-day:hover {
+  transition: 0.4s;
   transition: 0.4s;
   background-color: #31363F;
   color: #fff;
@@ -26,9 +26,23 @@
 }
 
 .current-day {
-  background-color: #ddd;
+  background-color: #fff;
+  /*
+  p {
+    background-color: #fff;
+    color: #31363f;
+    display: inline-block;
+    margin: 0;
+    padding: 2px;
+    border-radius: 5px;
+  }
+  */
+}
+.current-day p {
   color: #31363F;
-  border: 1px solid #000;
+}
+.current-day p:hover {
+  color: #fff;
 }
 
 .event {
