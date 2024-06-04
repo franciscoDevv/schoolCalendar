@@ -14,8 +14,8 @@
   border: 1px solid #dee2e6;
   background-color: #212529;
   padding: 10px;
+  transition: .4s;
   &:hover {
-    transition: .4s;
     transition: .4s;
     background-color: #31363F;
     color: #fff;
@@ -24,21 +24,7 @@
 }
 
 .current-day {
-  background-color: #fff;
-  p {
-    color: #31363F;
-    &:hover {
-      color: #fff;
-    }
-  }
-  /*
-  p {
-    background-color: #fff;
-    color: #31363f;
-    display: inline-block;
-    margin: 0;
-    padding: 2px;
-    border-radius: 5px;
-  }
-  */
+  background-color: #D3D3D3;
+  color: #31363F;
+  border: 1px solid #000;
 }
