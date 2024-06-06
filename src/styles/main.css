@@ -60,6 +60,10 @@
   background-color: #312fa8;
 }
 
+.event.ensayo {
+  background-color: #B86F52;
+}
+
 .modal {
   display: none;
   position: fixed;
