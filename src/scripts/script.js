@@ -11,7 +11,7 @@ let events = [
   { date: "2024-06-11", description: "Proyecto Design Thinking", fullDescription: `Elaborar un informe sobre "<b>Proyecto de (Nombre de la problemática)</b>", para ello dispone de los conocimientos adquiridos en la asignatura además de contar con la ayuda de internet para la elaboración del proyecto. `, tipo: "informe", tipo: "informe", link: "https://classroom.google.com/u/1/c/NjU5NTU4NDMwODc5/a/NjgwMDQwNzI0NTkz/details", subject: "Diseño de Prototipos Web"},
   { date: "2024-06-08", description: "Ejercicios Matemática de Medidas de Dispersión", fullDescription: "Trabajo grupal de ejercicios en grupo sobre medidas de dispersión, traer ejercicios terminados este día.", tipo: "trabajo", subject: "Matemáticas"},
   { date: "2024-06-13", description: "Entrega Certificado JavaScript 2", fullDescription: "Entregar el certificado del curso de Jovenes Programadores JavaScript 2 con máximo esta fecha.", subject: "Diseño de Prototipos Web", link: "https://classroom.google.com/u/1/c/NjU5NTU4NDMwODc5/a/NjgzOTU2MDI4MjQx/details", tipo: "trabajo"},
-  { date: "2024-06-08", description: "Ensayo Lenguaje", fullDescription: "Realizar ensayo con temática escogida en clases, y subirla a classroom.", link: "https://classroom.google.com/u/1/c/NjkyNDI4NjY3ODU3/a/NjgwMzM4NTkxMDAw/details", tipo: "ensayo"},
+  { date: "2024-06-08", description: "Ensayo Lenguaje", fullDescription: "Realizar ensayo con temática escogida en clases, y subirla a classroom.", link: "https://classroom.google.com/u/1/c/NjkyNDI4NjY3ODU3/a/NjgwMzM4NTkxMDAw/details", tipo: "ensayo", subject: "Lenguaje"},
   { date: "2024-06-08", description:"Informe de Base de Datos ABP, ETAPA I y II", fullDescription: "Modelado de la base de datos del caso propuesto ABP. Entrega de diseño y diccionario de datos", subject:"Bases de Datos", link: "https://classroom.google.com/u/1/c/NjU5NDcyMzE5MDA2/a/Njk0MjI2NDg2OTU0/details", tipo:"informe"}
 ];
 
@@ -94,3 +94,54 @@ generateCalendar(selectedMonth);
 
 generateCalendar(new Date().getMonth() + 1);
 
+
+function displayUpcomingEventsModal() {
+  const upcomingEvents = getUpcomingEvents().slice(0, 5); 
+  const modalBody = document.getElementById('upcoming-events-modal-body');
+  modalBody.innerHTML = '';
+
+  upcomingEvents.forEach(event => {
+      const eventElement = document.createElement('div');
+      eventElement.classList.add('upcoming-event');
+      if(event.link === undefined){
+        eventElement.innerHTML = `
+          <h3>${event.description}</h3>
+          <p><strong>Fecha:</strong> ${formatDate(event.date)}</p>
+          <p><strong>Asignatura:</strong> ${event.subject}</p>
+          <p>${event.fullDescription}</p>
+          <center><a href="#" class="btn btn-secondary">No hay link disponible</a></center>
+        `
+        modalBody.appendChild(eventElement);
+      } else {
+        eventElement.innerHTML = `
+        <h3>${event.description}</h3>
+        <p><strong>Fecha:</strong> ${formatDate(event.date)}</p>
+        <p><strong>Asignatura:</strong> ${event.subject}</p>
+        <p>${event.fullDescription}</p>
+        <center><a href="${event.link}" target="_blank" class="btn btn-primary">Ver más</a></center>
+    `;
+        modalBody.appendChild(eventElement);
+      }
+  });
+
+  const modal = new bootstrap.Modal(document.getElementById('upcoming-events-modal'));
+  modal.show();
+}
+
+function formatDate(dateString) {
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date(dateString);
+  return date.toLocaleDateString('es-ES', options);
+}
+
+function getUpcomingEvents() {
+  const today = new Date();
+  const upcomingEvents = events.filter(event => new Date(event.date) >= today);
+  upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+  return upcomingEvents;
+}
+
+window.onload = function() {
+  displayUpcomingEvents(); // Muestra las evaluaciones próximas al cargar la página
+  // Resto del código...
+}

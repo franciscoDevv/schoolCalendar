@@ -1,0 +1,33 @@
+.upcoming-events-container {
+  margin-top: 20px;
+}
+
+.upcoming-event {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.upcoming-event-date {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.upcoming-event-details h3 {
+  margin-top: 0;
+}
+
+.upcoming-event-details p {
+  margin-bottom: 5px;
+}
+
+
+.modal {
+  z-index: 1050; 
+}
+
+.modal-backdrop {
+  z-index: 1040; 
+}

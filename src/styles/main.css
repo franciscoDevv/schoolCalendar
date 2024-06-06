@@ -82,7 +82,7 @@
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 85%;
 }
 
 .close {
@@ -96,6 +96,27 @@
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+}
+
+.light-mode .modal-header .custom-close-btn {
+  color: #000;
+  opacity: 0.75;
+  transition: 0.4s;
+}
+.light-mode .modal-header .custom-close-btn:hover, .light-mode .modal-header .custom-close-btn:focus {
+  transition: 0.4s;
+}
+
+.custom-btn {
+  background-color: #D3D3D3;
+  color: #000;
+  transition: 0.4s;
+}
+.custom-btn:hover {
+  background-color: #b0b0b0;
+  color: #000;
+  transform: scale(1.05);
+  transition: 0.4s;
 }
 
 @media (max-width: 1200px) {
@@ -229,6 +250,59 @@ body.light-mode select:focus {
   border-color: #80bdff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.light-mode .modal-header .btn-close {
+  filter: contrast(0.5);
+  opacity: 0.75;
+}
+.light-mode .modal-header .btn-close:hover {
+  color: #000;
+  opacity: 1;
+}
+
+.light-mode .custom-btn {
+  background-color: #007bff;
+  color: #fff;
+  transition: 0.4s;
+}
+.light-mode .custom-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  transition: 0.4s;
+}
+
+.upcoming-events-container {
+  margin-top: 20px;
+}
+
+.upcoming-event {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.upcoming-event-date {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.upcoming-event-details h3 {
+  margin-top: 0;
+}
+
+.upcoming-event-details p {
+  margin-bottom: 5px;
+}
+
+.modal {
+  z-index: 1050;
+}
+
+.modal-backdrop {
+  z-index: 1040;
 }
 
 * {
