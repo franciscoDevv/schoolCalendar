@@ -140,8 +140,3 @@ function getUpcomingEvents() {
   upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
   return upcomingEvents;
 }
-
-window.onload = function() {
-  displayUpcomingEvents(); // Muestra las evaluaciones próximas al cargar la página
-  // Resto del código...
-}
