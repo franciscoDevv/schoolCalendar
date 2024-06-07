@@ -33,7 +33,13 @@ footer {
 .light-mode footer {
   background-color: white;
   color: black;
+  .footerContainer {
+    span {
+      color: #000;
+    }
+  }
 }
+
 
 /* Theme switch */
 .switch {

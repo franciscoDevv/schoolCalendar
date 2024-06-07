@@ -12,7 +12,11 @@ let events = [
   { date: "2024-06-08", description: "Ejercicios Matemática de Medidas de Dispersión", fullDescription: "Trabajo grupal de ejercicios en grupo sobre medidas de dispersión, traer ejercicios terminados este día.", tipo: "trabajo", subject: "Matemáticas"},
   { date: "2024-06-13", description: "Entrega Certificado JavaScript 2", fullDescription: "Entregar el certificado del curso de Jovenes Programadores JavaScript 2 con máximo esta fecha.", subject: "Diseño de Prototipos Web", link: "https://classroom.google.com/u/1/c/NjU5NTU4NDMwODc5/a/NjgzOTU2MDI4MjQx/details", tipo: "trabajo"},
   { date: "2024-06-08", description: "Ensayo Lenguaje", fullDescription: "Realizar ensayo con temática escogida en clases, y subirla a classroom.", link: "https://classroom.google.com/u/1/c/NjkyNDI4NjY3ODU3/a/NjgwMzM4NTkxMDAw/details", tipo: "ensayo", subject: "Lenguaje"},
-  { date: "2024-06-08", description:"Informe de Base de Datos ABP, ETAPA I y II", fullDescription: "Modelado de la base de datos del caso propuesto ABP. Entrega de diseño y diccionario de datos", subject:"Bases de Datos", link: "https://classroom.google.com/u/1/c/NjU5NDcyMzE5MDA2/a/Njk0MjI2NDg2OTU0/details", tipo:"informe"}
+  { date: "2024-06-08", description:"Informe de Base de Datos ABP, ETAPA I y II", fullDescription: "Modelado de la base de datos del caso propuesto ABP. Entrega de diseño y diccionario de datos", subject:"Bases de Datos", link: "https://classroom.google.com/u/1/c/NjU5NDcyMzE5MDA2/a/Njk0MjI2NDg2OTU0/details", tipo:"informe"},
+  { date: "2024-06-15", description: "Informe de investigacióin matemática - Función exponencial y función logarítmica", fullDescription: "Realizar informe sobre función exponencial y logarítmica en un grupo de 4-5 estudiantes.", subject: "Matemáticas", tipo:"informe"},
+  { date: "2024-06-19", description: "Prueba APTUS Matemáticas", fullDescription: "Plazo máximo para realizar prueba APTUS, el link de ingreso está en el correo respectivo de cada estudiante.", subject:"Matemáticas", tipo:"prueba"},
+  { date: "2024-06-19", description: "Prueba APTUS Lenguaje", fullDescription: "Plazo máximo para realizar prueba APTUS, el link de ingreso está en el correo repectivo de cada estudiante.", subject:"Lenguaje", tipo:"prueba"}
+
 ];
 
 const modal = document.getElementById("eventModal");
@@ -20,7 +24,7 @@ const span = document.getElementsByClassName("close")[0];
 
 function showEventDescription(title, description, link, subject) {
   if(link == undefined) {
-    document.getElementById('eventDescription').innerHTML = `<h1>${title}</h1><br><h5>${subject}</h5><br>${description}<br><a href="#">Link de utilidad</a>`;
+    document.getElementById('eventDescription').innerHTML = `<h1>${title}</h1><br><h5>${subject}</h5><br>${description}<br><p class="no-link">No hay link disponible</p>`;
     modal.style.display = "block";  
   } else {
     document.getElementById('eventDescription').innerHTML = `<h1>${title}</h1><br><h5>${subject}</h5><br>${description}<br><a href="${link}" target="_blank">Link de utilidad</a>`;
@@ -118,7 +122,7 @@ function displayUpcomingEventsModal() {
         <p><strong>Fecha:</strong> ${formatDate(event.date)}</p>
         <p><strong>Asignatura:</strong> ${event.subject}</p>
         <p>${event.fullDescription}</p>
-        <center><a href="${event.link}" target="_blank" class="btn btn-primary">Ver más</a></center>
+        <center><a href="${event.link}" target="_blank" class="btn btn-primary">Ver más información</a></center>
     `;
         modalBody.appendChild(eventElement);
       }
@@ -140,3 +144,56 @@ function getUpcomingEvents() {
   upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
   return upcomingEvents;
 }
+
+
+
+let searchInput = document.getElementById('search');
+let c1 = document.getElementById('c1');
+let c2 = document.getElementById('c2');
+let c3 = document.getElementById('c3');
+let ct = document.getElementById('ct');
+let sr = document.getElementById("search-results")
+
+searchInput.addEventListener("focusin", ()=>{
+  // c1.classList.add('blur');
+  c2.classList.add('blur');
+  c3.classList.add('blur');
+  ct.classList.add('blur');
+  sr.style.display = "block";
+})
+
+searchInput.addEventListener("focusout", (i) => {
+  setTimeout(() => {
+    if (!searchInput.contains(document.activeElement) && !searchResults.contains(document.activeElement)) {
+      c2.classList.remove('blur');
+      c3.classList.remove('blur');
+      ct.classList.remove('blur');
+      searchResults.style.display = "none";
+    }
+  }, 200);
+});
+
+
+let searchResults = document.getElementById('search-results');
+
+searchInput.addEventListener('input', ()=> {
+  searchResults.innerHTML = '';
+  let searchText = searchInput.value.trim().toLowerCase();
+  let filteredevents = events.filter(event => event.description.toLowerCase().includes(searchText));
+  if(searchText = '') {
+    return;
+  }
+  filteredevents.forEach(event=>{
+    let resultElement = document.createElement('div');
+    resultElement.classList.add('search-result');
+    resultElement.innerHTML = `
+    <div class="event ${event.tipo} p-2">${event.description}</div>
+    `
+
+    resultElement.addEventListener('click', ()=>{
+      console.log("test!!");
+      showEventDescription(event.description, event.fullDescription, event.link, event.subject);
+    });
+    searchResults.appendChild(resultElement);
+  })
+})
