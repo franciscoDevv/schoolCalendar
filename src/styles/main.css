@@ -340,4 +340,12 @@ footer {
   margin: auto;
 }
 
+.light-mode .search-input {
+  background-color: #fff;
+}
+
+.light-mode .search-input::placeholder {
+  color: #000;
+}
+
 /*# sourceMappingURL=main.css.map */

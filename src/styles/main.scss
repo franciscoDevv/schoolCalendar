@@ -33,3 +33,11 @@ footer {
   width: 300px;
   margin: auto;
 }
+
+.light-mode .search-input {
+  background-color: #fff;
+}
+
+.light-mode .search-input::placeholder {
+  color: #000;
+}
