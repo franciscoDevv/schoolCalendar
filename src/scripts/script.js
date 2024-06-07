@@ -14,8 +14,8 @@ let events = [
   { date: "2024-06-08", description: "Ensayo Lenguaje", fullDescription: "Realizar ensayo con temática escogida en clases, y subirla a classroom.", link: "https://classroom.google.com/u/1/c/NjkyNDI4NjY3ODU3/a/NjgwMzM4NTkxMDAw/details", tipo: "ensayo", subject: "Lenguaje"},
   { date: "2024-06-08", description:"Informe de Base de Datos ABP, ETAPA I y II", fullDescription: "Modelado de la base de datos del caso propuesto ABP. Entrega de diseño y diccionario de datos", subject:"Bases de Datos", link: "https://classroom.google.com/u/1/c/NjU5NDcyMzE5MDA2/a/Njk0MjI2NDg2OTU0/details", tipo:"informe"},
   { date: "2024-06-15", description: "Informe de investigacióin matemática - Función exponencial y función logarítmica", fullDescription: "Realizar informe sobre función exponencial y logarítmica en un grupo de 4-5 estudiantes.", subject: "Matemáticas", tipo:"informe"},
-  { date: "2024-06-19", description: "Prueba APTUS Matemáticas", fullDescription: "Plazo máximo para realizar prueba APTUS, el link de ingreso está en el correo respectivo de cada estudiante.", subject:"Matemáticas", tipo:"prueba"},
-  { date: "2024-06-19", description: "Prueba APTUS Lenguaje", fullDescription: "Plazo máximo para realizar prueba APTUS, el link de ingreso está en el correo repectivo de cada estudiante.", subject:"Lenguaje", tipo:"prueba"}
+  { date: "2024-06-19", description: "Prueba APTUS Matemáticas", fullDescription: "Plazo máximo para realizar prueba APTUS 18 de Junio, el link de ingreso está en el correo respectivo de cada estudiante.", subject:"Matemáticas", tipo:"prueba"},
+  { date: "2024-06-19", description: "Prueba APTUS Lenguaje", fullDescription: "Plazo máximo para realizar prueba APTUS 18 de Junio, el link de ingreso está en el correo repectivo de cada estudiante.", subject:"Lenguaje", tipo:"prueba"}
 
 ];
 
