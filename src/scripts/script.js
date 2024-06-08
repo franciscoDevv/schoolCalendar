@@ -1,23 +1,10 @@
+import {events} from './events.js';
+import { subjectIcons, getSubjectIcon } from './icons.js';
 
 document.getElementById('theme-switch').addEventListener('change', function() {
   document.body.classList.toggle('light-mode');
 });
 
-let events = [
-  { date: "2024-06-04", description: "Fotovoz", fullDescription: "Los estudiantes de forma individual deberán realizar una página webque posea su autobiografía de sus días a través del método FotoVoz, es importante que para realizar dicha actividad los estudiantes posean 8 fotos distribuidas en 2 días. Para ello deberán utilizar HTML, CSS y JavaScript, además deberán utilizar Bootstrap para la creación de dicha página, por otra parte debe contar con un menú que permita movernos entre los dos días, idealmente us  ar una letra distinta a las que entrega el sistema.", tipo: "trabajo", link: "https://classroom.google.com/u/1/c/NjU5NTU4NDMwODc5/a/NjgzNTA4NjE2NjA1/details", subject: "Diseño de Prototipos Web"},
-  // { date: "2024-06-06", description: "Prueba Historia", fullDescription: `<b>Contenidos</b>: <br>- Los locos años 20<br>- Las ideologías totalitarias<br>-Crisis de 1929<br>-Gobierno de Arturo Alessandri<br>-Frente Popular`, tipo: "prueba", subject: "Historia"},
-  { date: "2024-06-14", description: "Prueba Ciencias para la Ciudadanía", fullDescription: "Prueba Semestral de Ciencias para la Ciudadanía", tipo: "prueba", subject: "Ciencias para la Ciudadanía", link:"https://classroom.google.com/u/1/c/NjAxMTM5MDAxNDM2/a/Njk0NzYxNjIwNTY0/details"},
-  { date: "2024-06-13", description: "Prueba Historia", fullDescription: `<b>Contenidos</b>: <br>- Los locos años 20<br>- Las ideologías totalitarias<br>-Crisis de 1929<br>-Gobierno de Arturo Alessandri<br>-Frente Popular`, tipo: "prueba", subject: "Historia"},
-  { date: "2024-06-11", description: "Proyecto Design Thinking", fullDescription: `Elaborar un informe sobre "<b>Proyecto de (Nombre de la problemática)</b>", para ello dispone de los conocimientos adquiridos en la asignatura además de contar con la ayuda de internet para la elaboración del proyecto. `, tipo: "informe", tipo: "informe", link: "https://classroom.google.com/u/1/c/NjU5NTU4NDMwODc5/a/NjgwMDQwNzI0NTkz/details", subject: "Diseño de Prototipos Web"},
-  { date: "2024-06-08", description: "Ejercicios Matemática de Medidas de Dispersión", fullDescription: "Trabajo grupal de ejercicios en grupo sobre medidas de dispersión, traer ejercicios terminados este día.", tipo: "trabajo", subject: "Matemáticas"},
-  { date: "2024-06-13", description: "Entrega Certificado JavaScript 2", fullDescription: "Entregar el certificado del curso de Jovenes Programadores JavaScript 2 con máximo esta fecha.", subject: "Diseño de Prototipos Web", link: "https://classroom.google.com/u/1/c/NjU5NTU4NDMwODc5/a/NjgzOTU2MDI4MjQx/details", tipo: "trabajo"},
-  { date: "2024-06-08", description: "Ensayo Lenguaje", fullDescription: "Realizar ensayo con temática escogida en clases, y subirla a classroom.", link: "https://classroom.google.com/u/1/c/NjkyNDI4NjY3ODU3/a/NjgwMzM4NTkxMDAw/details", tipo: "ensayo", subject: "Lenguaje"},
-  { date: "2024-06-08", description:"Informe de Base de Datos ABP, ETAPA I y II", fullDescription: "Modelado de la base de datos del caso propuesto ABP. Entrega de diseño y diccionario de datos", subject:"Bases de Datos", link: "https://classroom.google.com/u/1/c/NjU5NDcyMzE5MDA2/a/Njk0MjI2NDg2OTU0/details", tipo:"informe"},
-  { date: "2024-06-15", description: "Informe de investigacióin matemática - Función exponencial y función logarítmica", fullDescription: "Realizar informe sobre función exponencial y logarítmica en un grupo de 4-5 estudiantes.", subject: "Matemáticas", tipo:"informe"},
-  { date: "2024-06-19", description: "Prueba APTUS Matemáticas", fullDescription: "Plazo máximo para realizar prueba APTUS 18 de Junio, el link de ingreso está en el correo respectivo de cada estudiante.", subject:"Matemáticas", tipo:"prueba"},
-  { date: "2024-06-19", description: "Prueba APTUS Lenguaje", fullDescription: "Plazo máximo para realizar prueba APTUS 18 de Junio, el link de ingreso está en el correo repectivo de cada estudiante.", subject:"Lenguaje", tipo:"prueba"}
-
-];
 
 const modal = document.getElementById("eventModal");
 const span = document.getElementsByClassName("close")[0];
@@ -81,7 +68,8 @@ for (let i = 1; i <= daysInMonth; i++) {
   if (eventsForDay.length > 0) {
     eventsForDay.forEach(event => {
       const eventElement = document.createElement('div');
-      eventElement.textContent = event.description;
+      const iconClass = getSubjectIcon(event.subject);
+      eventElement.innerHTML = `<i class="fas ${iconClass}"></i> ${event.description}`;
       eventElement.classList.add('event', event.tipo);
       eventElement.onclick = () => showEventDescription(event.description, event.fullDescription, event.link, event.subject);
       dayDiv.appendChild(eventElement);
@@ -191,7 +179,6 @@ searchInput.addEventListener('input', ()=> {
     `
 
     resultElement.addEventListener('click', ()=>{
-      console.log("test!!");
       showEventDescription(event.description, event.fullDescription, event.link, event.subject);
     });
     searchResults.appendChild(resultElement);

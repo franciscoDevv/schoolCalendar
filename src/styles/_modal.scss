@@ -56,3 +56,11 @@
   color: #808080;
   text-decoration: none;
 }
+
+.btn {
+  transition:.4s;
+  &:hover {
+    transform: scale(1.05);
+    transition: .4s;
+  }
+}

@@ -12,3 +12,7 @@
 .event.informe { background-color: #dc3545; } 
 .event.trabajo { background-color: #312fa8; }
 .event.ensayo { background-color: #B86F52;}
+
+.event:hover {
+  transform: scale(1.05);
+}
