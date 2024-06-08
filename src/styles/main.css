@@ -136,6 +136,11 @@
   transition: 0.4s;
 }
 
+.megaIcon {
+  font-size: 60px;
+  padding: 3px;
+}
+
 @media (max-width: 1200px) {
   .calendar {
     grid-template-columns: repeat(4, 1fr);
