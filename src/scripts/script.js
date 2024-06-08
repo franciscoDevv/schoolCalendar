@@ -73,7 +73,6 @@ function generateCalendar(month) {
       eventsForDay.forEach(event => {
         const eventElement = document.createElement('div');
         const iconClass = getSubjectIcon(event.subject);
-        console.log(iconClass);
         eventElement.innerHTML = `<i class="fas ${iconClass}"></i> ${event.description}`;
         eventElement.classList.add('event', event.tipo);
         eventElement.onclick = () => showEventDescription(event.description, event.fullDescription, event.link, event.subject, event.subject);

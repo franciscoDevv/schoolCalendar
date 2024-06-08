@@ -129,3 +129,13 @@ body.light-mode select:focus {
     transition: .4s;
   }
 }
+
+
+.light-mode .search-input {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode .search-input::placeholder {
+  color: #000;
+}

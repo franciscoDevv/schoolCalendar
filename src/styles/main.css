@@ -65,7 +65,7 @@
 }
 
 .event:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .modal {
@@ -297,6 +297,15 @@ body.light-mode select:focus {
   transition: 0.4s;
 }
 
+.light-mode .search-input {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode .search-input::placeholder {
+  color: #000;
+}
+
 .upcoming-events-container {
   margin-top: 20px;
 }
@@ -357,12 +366,12 @@ footer {
   margin: auto;
 }
 
-.light-mode .search-input {
-  background-color: #fff;
+.megaIcon {
+  transition: 0.4s;
 }
-
-.light-mode .search-input::placeholder {
-  color: #000;
+.megaIcon:hover {
+  transform: scale(1.05);
+  transition: 0.4s;
 }
 
 /*# sourceMappingURL=main.css.map */
