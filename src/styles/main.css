@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -337,6 +338,58 @@ body.light-mode select:focus {
 
 .modal-backdrop {
   z-index: 1040;
+}
+
+.event-completed-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 5px;
+  position: absolute;
+  right: 10px;
+  top: -1px;
+}
+
+.event-completed-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  margin-left: 10px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  background-color: #fff;
+}
+
+.event-completed-checkbox:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.event-completed-checkbox:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 1px;
+  left: 4px;
+}
+
+.event-completed-label {
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+}
+
+.event-completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.event {
+  position: relative;
+  padding-right: 40px;
 }
 
 * {

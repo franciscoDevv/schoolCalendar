@@ -33,6 +33,10 @@ window.onclick = function(event) {
   }
 }
 
+function generateEventId(event) {
+  return `${event.date.replace(/-/g, '')}_${event.description.replace(/\s+/g, '_')}`;
+}
+
 function generateCalendar(month) {
   const calendarDiv = document.getElementById('calendar');
   calendarDiv.innerHTML = '';
@@ -73,10 +77,32 @@ function generateCalendar(month) {
       eventsForDay.forEach(event => {
         const eventElement = document.createElement('div');
         const iconClass = getSubjectIcon(event.subject);
-        eventElement.innerHTML = `<i class="fas ${iconClass}"></i> ${event.description}`;
-        eventElement.classList.add('event', event.tipo);
+        const eventId = generateEventId(event);
+        const completedClass = isEventCompleted(eventId) ? 'event-completed' : '';
+
+        eventElement.innerHTML = `
+          <div class="event ${event.tipo} ${completedClass}">
+            <i class="fas ${iconClass}"></i> ${event.description}
+            <div class="event-completed-container">
+              <input type="checkbox" id="checkbox-${eventId}" class="event-completed-checkbox" ${isEventCompleted(eventId) ? 'checked' : ''} />
+              <label for="checkbox-${eventId}" class="event-completed-label">Marcar como completado</label>
+            </div>
+          </div>
+        `;
+
         eventElement.onclick = () => showEventDescription(event.description, event.fullDescription, event.link, event.subject, event.subject);
+
         dayDiv.appendChild(eventElement);
+
+        setTimeout(() => {
+          const checkbox = document.getElementById(`checkbox-${eventId}`);
+          if (checkbox) {
+            checkbox.addEventListener('change', (e) => {
+              e.stopPropagation();
+              toggleEventCompleted(eventId);
+            });
+          }
+        }, 0);
       });
     }
     calendarDiv.appendChild(dayDiv);
@@ -140,6 +166,21 @@ function getUpcomingEvents() {
   return upcomingEvents;
 }
 
+
+function isEventCompleted(eventId) {
+  return localStorage.getItem(eventId) === 'completed';
+}
+
+function toggleEventCompleted(eventId) {
+  if (isEventCompleted(eventId)) {
+    localStorage.removeItem(eventId);
+  } else {
+    localStorage.setItem(eventId, 'completed');
+  }
+  generateCalendar(new Date().getMonth() + 1);
+}
+
+
 let searchInput = document.getElementById('search');
 let c1 = document.getElementById('c1');
 let c2 = document.getElementById('c2');
@@ -148,7 +189,6 @@ let ct = document.getElementById('ct');
 let sr = document.getElementById("search-results");
 
 searchInput.addEventListener("focusin", () => {
-  // c1.classList.add('blur');
   c2.classList.add('blur');
   c3.classList.add('blur');
   ct.classList.add('blur');
