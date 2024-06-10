@@ -103,6 +103,7 @@ function generateCalendar(month) {
             });
           }
         }, 0);
+
       });
     }
     calendarDiv.appendChild(dayDiv);
