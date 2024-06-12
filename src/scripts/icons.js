@@ -5,7 +5,8 @@ export const subjectIcons = {
   "Ciencias para la Ciudadanía": "fa-flask",
   "Matemáticas": "fa-square-root-alt",
   "Lenguaje": "fa-book",
-  "Bases de Datos": "fa-database"
+  "Bases de Datos": "fa-database",
+  "Recuperativo": "fa-school"
 };
 
 export function getSubjectIcon(subject) {

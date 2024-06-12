@@ -13,5 +13,7 @@ export const events = [
   { date: "2024-06-19", description: "Prueba APTUS Lenguaje", fullDescription: "Plazo máximo para realizar prueba APTUS 18 de Junio, el link de ingreso está en el correo repectivo de cada estudiante.", subject:"Lenguaje", tipo:"prueba"},
   { date: "2024-06-12", description: "Bases de Datos Etapa III", fullDescription: "Modelar base de datos de caso propuesto en clases utilizando el SGBD Oracle", subject: "Bases de Datos", tipo:"trabajo", link:"https://classroom.google.com/u/1/c/NjU5NDcyMzE5MDA2/a/NjkzMjA3NjQwMzgz/details"},
   { date: "2024-06-18", description: "Prueba Teórica Principios Aplicados de Programación", fullDescription: "Prueba teóricas de contenidos vistos en clases (Variables, condicionales, bucles, arreglos, Python, etc)", subject:"Diseño de Prototipos Web", tipo:"prueba"},
-  { date:"2024-06-15", description: "Revisión de Cuadernos Bases de Datos", fullDescription:"Revisión semestral de cuadernos de la asignatura de Bases de Datos", subject:"Bases de Datos", tipo:"control"}
+  { date:"2024-06-15", description: "Revisión de Cuadernos Bases de Datos", fullDescription:"Revisión semestral de cuadernos de la asignatura de Bases de Datos", subject:"Bases de Datos", tipo:"control"},
+  { date: "2024-06-14", description: "RECUPERATIVO GENERAL DE EVALUACIONES", subject: "Recuperativo", tipo:"recuperativo", fullDescription: "Días Jueves y Viernes habilitados para rendir recuperativo de evaluaciones."},
+  { date: "2024-06-15", description: "RECUPERATIVO GENERAL DE EVALUACIONES", subject:"Recuperativo", tipo:"recuperativo", fullDescription:"Días Jueves y Viernes habilitados para rendir recuperativo de evaluaciones"}
 ];
