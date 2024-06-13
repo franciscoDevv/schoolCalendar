@@ -90,7 +90,11 @@ function generateCalendar(month) {
           </div>
         `;
 
-        eventElement.onclick = () => showEventDescription(event.description, event.fullDescription, event.link, event.subject, event.subject);
+        eventElement.onclick = (e) => {
+          if (!e.target.classList.contains('event-completed-checkbox')) {
+            showEventDescription(event.description, event.fullDescription, event.link, event.subject, event.subject);
+          }
+        };
 
         dayDiv.appendChild(eventElement);
 
@@ -103,7 +107,6 @@ function generateCalendar(month) {
             });
           }
         }, 0);
-
       });
     }
     calendarDiv.appendChild(dayDiv);
@@ -167,7 +170,6 @@ function getUpcomingEvents() {
   return upcomingEvents;
 }
 
-
 function isEventCompleted(eventId) {
   return localStorage.getItem(eventId) === 'completed';
 }
@@ -180,7 +182,6 @@ function toggleEventCompleted(eventId) {
   }
   generateCalendar(new Date().getMonth() + 1);
 }
-
 
 let searchInput = document.getElementById('search');
 let c1 = document.getElementById('c1');
