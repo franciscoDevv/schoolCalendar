@@ -5,6 +5,9 @@ document.getElementById('theme-switch').addEventListener('change', function() {
   document.body.classList.toggle('light-mode');
 });
 
+
+
+
 const modal = document.getElementById("eventModal");
 const span = document.getElementsByClassName("close")[0];
 

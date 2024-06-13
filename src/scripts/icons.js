@@ -6,7 +6,8 @@ export const subjectIcons = {
   "Matemáticas": "fa-square-root-alt",
   "Lenguaje": "fa-book",
   "Bases de Datos": "fa-database",
-  "Recuperativo": "fa-school"
+  "Recuperativo": "fa-school",
+  "Principios Aplicados de Programacion": "fa-laptop-code"
 };
 
 export function getSubjectIcon(subject) {
