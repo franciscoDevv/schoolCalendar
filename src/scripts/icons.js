@@ -10,7 +10,8 @@ export const subjectIcons = {
   "Principios Aplicados de Programacion": "fa-laptop-code",
   "Aviso": "fa-bell",
   "Educación Ciudadana": "fa-book-open",
-  "Historia": "fa-timeline"
+  "Historia": "fa-timeline",
+  "Filosofía": "fa-book-open-reader"
 };
 
 export function getSubjectIcon(subject) {

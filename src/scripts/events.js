@@ -21,5 +21,7 @@ export const events = [
   {date:"2024-07-09", description:"Inicio 2do Semestre", subject:"Aviso", tipo:"anuncio", fullDescription:"Inicio de clases segundo semestre."},
   {date:"2024-07-30", description:"PokeAPI - Chart JS", subject:"Diseño de Prototipos Web", fullDescription: "Implementación de estadísticas de cada Pokemón con la librería Chart JS.", tipo:"trabajo", link:"https://classroom.google.com/u/1/c/NjU5NTU4NDMwODc5/a/NzAxMjEwMjI0NjYw/details"},
   {date:"2024-08-06", description:"Prueba Educación Ciudadana", fullDescription:"Prueba de Educación Ciudadana", tipo:"prueba", subject:"Educación Ciudadana"},
-  {date:"2024-08-16", description:"Prueba Historia", fullDescription:"Prueba de Historia", tipo: "prueba", subject:"Historia"}
+  {date:"2024-08-15", description:"Prueba Historia", fullDescription:"Prueba de Historia", tipo: "prueba", subject:"Historia"},
+  {date:"2024-08-25", description:"Prueba Matemáticas", fullDescription: "Prueba de Matemáticas", tipo:"prueba", subject:"Matemáticas"},
+  {date:"2024-08-22", description:"Disertación Filosofía", fullDescription:"Disertación de Filosofía", tipo:"disertacion", subject:"Filosofía"}
 ];
